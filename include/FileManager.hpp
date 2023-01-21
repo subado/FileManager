@@ -10,6 +10,7 @@ class FileManager
 public:
 
 	FileManager();
+	FileManager(const fs::path &path);
 
 	~FileManager() = default;
 
