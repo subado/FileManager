@@ -12,6 +12,9 @@ public:
 	FileManager();
 
 	~FileManager() = default;
+
+private:
+
 };
 
 #endif // FILE_MANAGER_HPP
