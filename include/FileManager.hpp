@@ -15,6 +15,7 @@ public:
 
 private:
 
+	fs::path workingDir_;
 };
 
 #endif // FILE_MANAGER_HPP
