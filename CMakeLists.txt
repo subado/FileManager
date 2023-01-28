@@ -18,16 +18,16 @@ file(GLOB SOURCE
 )
 
 # Add an executable using the source files list
-set(TARGET FileManager)
-add_executable(${TARGET})
+set(LIBRARY_NAME FileManager)
+add_executable(${LIBRARY_NAME})
 
 # Disable compiler specific extensions
-set_target_properties(${TARGET}
+set_target_properties(${LIBRARY_NAME}
 	PROPERTIES
 	CXX_EXTENSIONS OFF
 )
 # Enable a lot of warnings for executable
-target_compile_options(${TARGET}
+target_compile_options(${LIBRARY_NAME}
 	PRIVATE
 	-Werror
 	-pedantic-errors
@@ -54,21 +54,21 @@ target_compile_options(${TARGET}
 )
 # Add compile options for debug build type to executable
 if(${CMAKE_BUILD_TYPE} STRLESS_EQUAL "Debug")
-	target_compile_options(${TARGET}
+	target_compile_options(${LIBRARY_NAME}
 		PRIVATE
 		-g
 	)
 endif()
 # Enable C++20 standart to a executable
-target_compile_features(${TARGET} PUBLIC cxx_std_20)
+target_compile_features(${LIBRARY_NAME} PUBLIC cxx_std_20)
 
 # Add source files to a executable
-target_sources(${TARGET}
+target_sources(${LIBRARY_NAME}
 	PRIVATE
 	${SOURCE}
 )
 # Add include directory to a executable
-target_include_directories(${TARGET} PRIVATE ${CMAKE_SOURCE_DIR}/include)
+target_include_directories(${LIBRARY_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/include)
 
 # Link executable against GTest
-target_link_libraries(${TARGET} PRIVATE GTest::gtest_main)
+target_link_libraries(${LIBRARY_NAME} PRIVATE GTest::gtest_main)
