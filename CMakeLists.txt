@@ -72,3 +72,7 @@ target_include_directories(${LIBRARY_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/include)
 
 # Link executable against GTest
 target_link_libraries(${LIBRARY_NAME} PRIVATE GTest::gtest_main)
+
+# Add tests with CTest
+include(GoogleTest)
+gtest_discover_tests(${LIBRARY_NAME})
