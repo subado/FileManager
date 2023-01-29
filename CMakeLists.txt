@@ -14,8 +14,16 @@ FetchContent_MakeAvailable(googletest)
 file(GLOB SOURCE
 	CONFIGURE_DEPENDS
 	"src/*.cpp"
-	"tests/*.cpp"
 )
+
+# Generate list of tests files
+if (BUILD_TESTING OR NOT DEFINED BUILD_TESTING)
+	file(GLOB TEST_FILES
+		CONFIGURE_DEPENDS
+		"tests/*.cpp"
+	)
+	list(APPEND SOURCE ${TEST_FILES})
+endif()
 
 # Add an executable using the source files list
 set(LIBRARY_NAME FileManager)
