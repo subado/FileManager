@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.25.1)
 project("FileManager" LANGUAGES CXX)
 
+enable_testing()
+
 # Downloading and building from source googletest framework
 include(FetchContent)
 FetchContent_Declare(
