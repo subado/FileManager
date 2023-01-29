@@ -14,6 +14,8 @@ public:
 
 	~FileManager() = default;
 
+	void changeDir(const fs::path &path);
+
 private:
 
 	fs::path workingDir_;
