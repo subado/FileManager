@@ -11,11 +11,11 @@ FileManagerError::FileManagerError(const std::string &whatStr)
 }
 
 FileManagerError::FileManagerError(const char *whatStr, const fs::path &path)
-: std::runtime_error(std::string("FileManagerError: ") + path.string() + ": " + whatStr)
+: std::runtime_error(std::string("FileManagerError: ") + whatStr + " [" + path.string() + "]")
 {
 }
 
 FileManagerError::FileManagerError(const std::string &whatStr, const fs::path &path)
-: std::runtime_error(std::string("FileManagerError: ") + path.string() + ": " + whatStr)
+: std::runtime_error(std::string("FileManagerError: ") + whatStr + " [" + path.string() + "]")
 {
 }
